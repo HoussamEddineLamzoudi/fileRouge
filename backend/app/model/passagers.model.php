@@ -24,13 +24,15 @@ class passagers extends database
     public function register_passager($dataUser)
     {
         
-        $this->db->query("INSERT INTO passagers (prenom, nom, userName, email, motPasse, hasCar) VALUES (:prenom, :nom, :userName, :email, :motPasse, :hasCar)");
+        $this->db->query("INSERT INTO passagers (prenom, nom, userName, email, motPasse, numTel, numWhatsapp, hasCar) VALUES (:prenom, :nom, :userName, :email, :motPasse, :numTel, :numWhatsapp, :hasCar)");
 
         $this->db->bind(":prenom", $dataUser['nom']);
         $this->db->bind(":nom", $dataUser['prenom']);
         $this->db->bind(":userName", $dataUser['userName']);
         $this->db->bind(":email", $dataUser['email']);
         $this->db->bind(":motPasse", $dataUser['password']);
+        $this->db->bind(":numTel", $dataUser['numTel']);
+        $this->db->bind(":numWhatsapp", $dataUser['numWhatsapp']);
         $this->db->bind(":hasCar", $dataUser['hasCar']);
 
         if ($this->db->execute()) return true;

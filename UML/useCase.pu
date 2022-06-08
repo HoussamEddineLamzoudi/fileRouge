@@ -2,13 +2,14 @@
 left to right direction
 
 actor "User" as fc0
+
 actor "User Motorisé" as fc1
 actor "User Non Motorisé" as fc2
-actor "Admin" as fc3
+
 
 fc0 <|--- fc1
 fc0 <|--- fc2
-fc0 <|--- fc3
+
 
 
 
@@ -23,18 +24,16 @@ rectangle system {
     usecase "suprimer ses publications" as MUC3
 
     usecase "contacter user Motoriser" as NMUC1
+    usecase "ajouter rating" as NMUC2
 
-    usecase "avertissement users" as AUC1
-    usecase "suprimer user" as AUC2
+    
 
     (MUC1) ..> (s'authentifier) : include
     (MUC2) ..> (s'authentifier) : include
     (MUC3) ..> (s'authentifier) : include
 
     (NMUC1) ...> (s'authentifier) : include
-
-    (AUC1) ...> (s'authentifier) : include
-    (AUC2) ...> (s'authentifier) : include
+    (NMUC2) ...> (s'authentifier) : include
 }
 
 
@@ -46,9 +45,7 @@ fc1 -- MUC2
 fc1 --- MUC3
 
 fc2 --- NMUC1
-
-fc3 -- AUC1
-fc3 -- AUC2
+fc2 --- NMUC2
 
 
 @enduml

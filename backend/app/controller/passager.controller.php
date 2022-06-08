@@ -8,6 +8,11 @@ class passager extends controller
         $this->passagerModel = $this->model('passagers');
     }
 
+    public function index()
+    {
+    
+    }
+
     // -------------- Register --------------
 
     public function register_passager()
@@ -23,6 +28,8 @@ class passager extends controller
                 'userName' => $info_passager->prenom . " " . $info_passager->nom,
                 'email' => $info_passager->email,
                 'password' => $info_passager->password,
+                'numTel' => $info_passager->numTel,
+                'numWhatsapp' => $info_passager->numWhatsapp,
                 'hasCar' => $info_passager->hasCar
             ];
 

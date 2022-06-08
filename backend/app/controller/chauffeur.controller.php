@@ -8,6 +8,11 @@ class chauffeur extends controller
         $this->chauffeurModel = $this->model('chauffeurs');
     }
 
+    public function index()
+    {
+    
+    }
+
     // -------------- Register --------------
 
     public function register_chauffeur()
@@ -23,6 +28,8 @@ class chauffeur extends controller
                 'userName' => $info_chauffeur->prenom . " " . $info_chauffeur->nom,
                 'email' => $info_chauffeur->email,
                 'password' => $info_chauffeur->password,
+                'numTel' => $info_chauffeur->numTel,
+                'numWhatsapp' => $info_chauffeur->numWhatsapp,
                 'hasCar' => $info_chauffeur->hasCar
             ];
 
