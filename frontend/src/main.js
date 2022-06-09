@@ -1,17 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.css'
+import Vue, { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import "./assets/tailwind.css";
+import "bootstrap/dist/css/bootstrap.css";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+const app = createApp(App);
+app.use(router);
+// app.use(BootstrapVue);
 
-// import { BootstrapVue } from 'bootstrap-vue'
-
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-// Vue.use(BootstrapVue)
-
-
-createApp(App).use(router).mount('#app')
-
-// import 'bootstrap/dist/js/bootstrap.js'
-
+app.mount("#app");

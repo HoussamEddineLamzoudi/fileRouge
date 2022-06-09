@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
   h1{
     color:rgb(97, 127, 225)
   }

@@ -1,7 +1,9 @@
 <template>
-  <div class="home mt-5 bg-primary">
+  <div class="home mt-5">
     <h2>home</h2>
-    <router-link to="/about">About</router-link>
+    <div class="mt-1">
+      <router-link to="/about">About</router-link>
+    </div>
   </div>
 </template>
 
