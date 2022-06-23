@@ -48,8 +48,19 @@ CREATE TABLE IF NOT EXISTS trajets (
     prix int(10) not null,
     cigarette_autorisee int(10) not null,
     chauffeurId int not null,
-    FOREIGN KEY (chauffeurId) REFERENCES chauffeurs(chauffeurId)
+    FOREIGN KEY (chauffeurId) REFERENCES chauffeurs(chauffeurId) 
 );
 
+CREATE TABLE IF NOT EXISTS reviews (
 
-INSERT INTO chauffeurs (prenom, nom, userName, email, numTel, numWhatsapp, motPasse, hasCar) VALUES ('amine', 'mesbahi', 'amine mesbahi', 'amine@gmail.com','0606100200'? '0606100200', '123', 'true');
+    id_review int PRIMARY KEY AUTO_INCREMENT,
+    body text not null,
+    rating int(10) not null,
+    published_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    chauffeurId int not null,
+    passagerId int not null,
+    FOREIGN KEY (chauffeurId) REFERENCES chauffeurs(chauffeurId)
+    FOREIGN KEY (passagerId) REFERENCES passagers(passagerId) 
+
+);
+

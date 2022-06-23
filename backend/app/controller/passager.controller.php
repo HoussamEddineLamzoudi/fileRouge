@@ -104,7 +104,10 @@ class passager extends controller
                 if ($passager) {
 
                     //~~~~session
-                    $retour_passager['login_seccess'] = true;
+                    $retour_passager['id'] = $passager->passagerId;
+                    $retour_passager['userName'] = $passager->userName;
+                    $retour_passager['typeUser'] = 'passager';
+                    $retour_passager['login_seccess'] = true; 
                     echo json_encode($retour_passager);
                 } else {
 

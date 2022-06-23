@@ -1,10 +1,10 @@
 @startuml useCase
 left to right direction
 
-actor "User" as fc0
+actor "Visiteur" as fc0
 
-actor "User Motorisé" as fc1
-actor "User Non Motorisé" as fc2
+actor "Chauffeur" as fc1
+actor "Passager" as fc2
 
 
 fc0 <|--- fc1
@@ -17,14 +17,14 @@ fc0 <|--- fc2
 
 rectangle system {
     
-    usecase "voir les publication" as UC1
+    usecase "Voir les Trajets" as UC1
 
-    usecase "ajouter une publication" as MUC1
-    usecase "modifierer ses publications" as MUC2
-    usecase "suprimer ses publications" as MUC3
+    usecase "Ajouter une Trajet" as MUC1
+    usecase "Modifierer ses Trajets" as MUC2
+    usecase "Suprimer ses Trajets" as MUC3
 
-    usecase "contacter user Motoriser" as NMUC1
-    usecase "ajouter rating" as NMUC2
+    usecase "Contacter Chauffeur" as NMUC1
+    usecase "Ajouter Review" as NMUC2
 
     
 

@@ -16,7 +16,6 @@ class trajet extends controller
 
     public function get_trajet()
     {
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $recherche_trajet = json_decode(file_get_contents("php://input"));
@@ -27,11 +26,49 @@ class trajet extends controller
                 'date_depart' => $recherche_trajet->date_depart,
                 'nbr_passager' => $recherche_trajet->nbr_passager,
             ];
-
             $trajet = $this->trajetModel->chercher_trajets($data);
+        
             echo json_encode($trajet);
         }
     }
+
+    public function prochaine_trajet()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $prochaine_trajet = json_decode(file_get_contents("php://input"));
+            // die('ok');
+
+            $data = [
+                'today' => $prochaine_trajet->today,
+                'chauffeurId' => $prochaine_trajet->chauffeurId,
+            ];
+
+            $trajet = $this->trajetModel->get_prochaine_trajet($data);
+        
+            echo json_encode($trajet);
+        }
+    }
+
+    public function ancien_trajet()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $ancien_trajet = json_decode(file_get_contents("php://input"));
+
+            $data = [
+                'today' => $ancien_trajet->today,
+                'chauffeurId' => $ancien_trajet->chauffeurId,
+            ];
+
+            $trajet = $this->trajetModel->get_ancien_trajet($data);
+        
+            echo json_encode($trajet);
+        }
+    }
+
+
+
 
     public function addTrajet()
     {
@@ -39,6 +76,8 @@ class trajet extends controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $info_trajet = json_decode(file_get_contents("php://input"));
+
+            
 
             $data = [
 
@@ -52,6 +91,8 @@ class trajet extends controller
                 'cigarette_autorisee' => $info_trajet->cigarette_autorisee,
                 'chauffeurId' => $info_trajet->chauffeurId,
             ];
+
+            
 
             if ($this->trajetModel->newTrajet($data)) {
 

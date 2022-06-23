@@ -35,6 +35,7 @@ class chauffeurs extends database
         $this->db->bind(":numWhatsapp", $dataUser['numWhatsapp']);
         $this->db->bind(":hasCar", $dataUser['hasCar']);
 
+
         if ($this->db->execute()) return true;
         else return false;
     }

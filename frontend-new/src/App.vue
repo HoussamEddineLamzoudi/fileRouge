@@ -2,7 +2,6 @@
   <div>
     <Navbar />
     <router-view />
-    <Form />
     <Footer />
   </div>
 </template>
@@ -16,14 +15,12 @@ h1 {
 <script>
 import Navbar from "./components/navbar.vue";
 import Footer from "./components/footer.vue";
-import Form from "./components/formRegister.vue";
 
 export default {
   name: "App",
   components: {
     Navbar,
     Footer,
-    Form
   },
 };
 </script>

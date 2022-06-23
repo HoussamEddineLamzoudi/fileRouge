@@ -38,6 +38,8 @@ class chauffeur extends controller
             if (empty($data['nom'])) $retour_chauffeur['nom_err'] = "merci de remplir votre Nom";
             if (empty($data['prenom'])) $retour_chauffeur['prenom_err'] = "merci de remplir votre Prenom";
             if (empty($data['password'])) $retour_chauffeur['password_err'] = "merci de remplir votre Password";
+            if (empty($data['numTel'])) $retour_chauffeur['numTel_err'] = "merci de remplir votre numero du telephone";
+            if (empty($data['numWhatsapp'])) $retour_chauffeur['numWhatsapp_err'] = "merci de remplir votre numero whatsapp";
 
             //email check
             if (empty($data['email'])) {
@@ -54,7 +56,12 @@ class chauffeur extends controller
                 if ($this->chauffeurModel->register_chauffeur($data)) {
 
                     $retour_chauffeur['regester_seccess'] = true;
-                    echo json_encode($retour_chauffeur);
+                    // echo json_encode(array(
+                    //     'retour_chauffeur' => true
+                    // ));
+                    echo json_encode(array(
+                        'regester_seccess' => true
+                    ));
                 }
             } else {
 
@@ -104,8 +111,13 @@ class chauffeur extends controller
                 $chauffeur = $this->chauffeurModel->login_chauffeur($data);
                 if ($chauffeur) {
 
+                    
                     //~~~~session
                     $retour_chauffeur['login_seccess'] = true;
+                    $retour_chauffeur['id'] = $chauffeur->chauffeurId;
+                    $retour_chauffeur['userName'] = $chauffeur->userName;
+                    $retour_chauffeur['typeUser'] = 'chauffeur';
+
                     echo json_encode($retour_chauffeur);
                 } else {
 
